@@ -1,0 +1,24 @@
+{
+  "name": "smap",
+  "version": "0.0.1",
+  "description": "Multingual sentence mapper",
+  "main": "node_api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aylusltd/smap.git"
+  },
+  "keywords": [
+    "computational",
+    "linguistics",
+    "nlp"
+  ],
+  "author": "Jason Nichols",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aylusltd/smap/issues"
+  },
+  "homepage": "https://github.com/aylusltd/smap#readme"
+}
