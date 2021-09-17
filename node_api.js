@@ -1,41 +1,11 @@
 const https = require('https');
+const tokenizer = require('./tokenizers');
+const constants = require('./constants');
+const {languages, partsOfSpeech} = constants
 
-const partsOfSpeech = [
-  'Adjective',
-  'Adverb',
-  'Article',
-  'Conjunction',
-  'Determiner',
-  'Exclamation',
-  'Interjection',
-  'Noun',
-  'Numeral',
-  'Particle',
-  'Postposition',
-  'Preposition',
-  'Pronoun',
-  'Proper Noun',
-  'Verb'
-]
 
-const languages = [
-  'Mandarin',
-  'English',
-  'Spanish',
-  'Hindi',
-  'Bengali',
-  'French',
-  'Arabic',
-  'Russian',
-  'Portuguese',
-  'Punjabi',
-  'Malay',
-  'Indonesian',
-  'German',
-  'Japanese',
-  'Wu',
-  'Italian'
-];
+
+
 
 function wikiFetch(word){
   // console.log('wikiFetch');
@@ -79,7 +49,7 @@ async function wikiParser(word){
   // console.log(sections);
   const languageObj={}
   let rank=1;
-  languages.forEach((language)=>{
+  constants.languages.forEach((language)=>{
     // console.log(language);
     const targetLanguageSections = sections.filter((section)=>{return section.line == language})
     if(targetLanguageSections.length == 0){
@@ -119,13 +89,7 @@ async function wikiParser(word){
   return languageObj;
 }
 
-// TODO: Expand for languages that don't use spaces
-function tokenize(sentence){
-  const stripped=sentence.replace(/[^a-zA-Z\s\d:]/gi,' ');
-  const words = stripped.split(' ').filter((word)=>word.length>0);
-  // console.log(words);
-  return words;
-}
+
 
 function collapseLanguagesToSentenceProbability(sentenceObjects){
   sentenceObjects = sentenceObjects.filter((a)=>!!a);
@@ -300,8 +264,10 @@ async function run_tests(){
   // await wikiParser('test');
   // await wikiParser('him');  
   // const words = tokenize('The quick brown fox jumped over the lazy dog 123 $.');
-  // const words = tokenize('Yo quiero Taco Bell');
-  const words = tokenize('Ich fahre mit dem Auto zu dem Laden')
+  const words = tokenizer.tokenize('Yo quiero Taco Bell');
+  // const words = tokenize('Ich fahre mit dem Auto zu dem Laden')
+  // const sentence = Buffer.from('我開車去商店', 'utf-8').toString()
+  // const words = tokenizer.tokenize(sentence);
 
   const languageObjects = await Promise.all(words.map(wikiParser));
   const detectedLanguageProbabilities = collapseLanguagesToSentenceProbability(languageObjects);
@@ -321,11 +287,11 @@ async function run_tests(){
 run_tests()
 
 module.exports = {
-  languages,
-  partsOfSpeech,
+  languages: constants.languages,
+  partsOfSpeech: constants.partsOfSpeech,
   wikiParser,
   wikiFetch,
-  tokenize,
+  tokenize: tokenizer.tokenize,
   collapseLanguagesToSentenceProbability,
   detectLanguage,
   assignParts,
