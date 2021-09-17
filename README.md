@@ -23,3 +23,6 @@ Smap exports many things, including:
 Possible Improvements:
 * Add definitions
 * A better ReadMe
+
+Credit:
+Inspired by https://github.com/paceaux/isidore. A much better written stand-alone implementation.
