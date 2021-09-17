@@ -49,7 +49,7 @@ async function wikiParser(word){
   // console.log(sections);
   const languageObj={}
   let rank=1;
-  constants.languages.forEach((language)=>{
+  languages.forEach((language)=>{
     // console.log(language);
     const targetLanguageSections = sections.filter((section)=>{return section.line == language})
     if(targetLanguageSections.length == 0){
@@ -287,8 +287,8 @@ async function run_tests(){
 run_tests()
 
 module.exports = {
-  languages: constants.languages,
-  partsOfSpeech: constants.partsOfSpeech,
+  languages,
+  partsOfSpeech,
   wikiParser,
   wikiFetch,
   tokenize: tokenizer.tokenize,
