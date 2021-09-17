@@ -1,5 +1,5 @@
 {
-  "name": "smap",
+  "name": "smappl",
   "version": "0.0.1",
   "description": "Multingual sentence mapper",
   "main": "node_api.js",
