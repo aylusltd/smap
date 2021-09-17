@@ -1,12 +1,12 @@
-# smap
+# smappl
 Multilingual Sentence Mapper
-`const smap = require('<path>/<to>/node_api.js')`
+`const smappl = require('<path>/<to>/node_api.js')`
 
-Smap stands for Sentence Mapper. 
+SMapPL stands for Sentence Mapper for Processing Language. 
 
-Smap uses wiktionary to identify words, languages, and their parts of speech. Consider it like a poor man's light weight SpaCy for JS.
+Smappl uses wiktionary to identify words, languages, and their parts of speech. Consider it like a poor man's light weight SpaCy for JS.
 
-Smap exports many things, including:
+Smappl exports many things, including:
 ```
   languages,      // List of top 30 languages as they appear in Wiktionary
   partsOfSpeech,  // Supported parts of speech
