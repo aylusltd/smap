@@ -2,9 +2,9 @@ const constants=require('../constants');
 
 // TODO: This is a horrible stub
 function tokenizeHan(sentence){
-  console.log('Han Sentence:', sentence);
+  // console.log('Han Sentence:', sentence);
   const words = sentence.split('');
-  console.log('Han Words:', words);
+  // console.log('Han Words:', words);
   return words;
 }
 
@@ -12,15 +12,15 @@ function tokenizeHan(sentence){
 function tokenize(sentence){
   const containsNonLatin = constants.scripts.reduce((reducer, script)=>{
     const re = new RegExp(`[\p{Script_Extensions=${script}}]`, 'u')
-    console.log(script);
-    console.log(re);
-    console.log(sentence);
+    // console.log(script);
+    // console.log(re);
+    // console.log(sentence);
     const scriptMatch = sentence.match(re);
-    console.log('scriptMatch:',scriptMatch);
+    // console.log('scriptMatch:',scriptMatch);
     return reducer || !!scriptMatch;
   }, false);  
 
-  console.log('containsNonLatin:', containsNonLatin);
+  // console.log('containsNonLatin:', containsNonLatin);
   // if(!containsNonLatin){
   if(true){
     const stripped=sentence.replace(/[^a-zA-Z\s\d:]/gi,' ');

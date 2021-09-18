@@ -79,7 +79,7 @@ async function wikiParser(word){
     languageObj[language]['probability'] = (rank-languageObj[language]['rank']+1)/languageDenominator;
   }
   // console.log(word)
-  languageObj['Spanish']?console.log(languageObj['Spanish']['partGuess']):0;
+  // languageObj['Spanish']?console.log(languageObj['Spanish']['partGuess']):0;
   return languageObj;
 }
 

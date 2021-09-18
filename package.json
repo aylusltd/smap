@@ -1,10 +1,10 @@
 {
   "name": "smappl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Multingual sentence mapper",
-  "main": "node_api.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine **/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/aylusltd/smap/issues"
   },
-  "homepage": "https://github.com/aylusltd/smap#readme"
+  "homepage": "https://github.com/aylusltd/smap#readme",
+  "devDependencies": {
+    "jasmine": "^3.9.0"
+  }
 }
